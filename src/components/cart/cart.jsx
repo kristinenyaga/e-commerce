@@ -10,12 +10,12 @@ const Cart = () => {
     axios.get(`https://shoplify-prod-231a968d6096.herokuapp.com/shop/carts/${cartId}/`)
       .then(res => {
         let cartItems=res.data.items
-        if (cartItems.length == 0) {
+        if (cartItems.length === 0) {
           localStorage.removeItem('cartId')
         }
         setCartItems(res.data.items)
     })
-  },[])
+  },[cartId])
   return (
     <div>
       <ReusableCartComponent items={items} cartId={cartId}  />  
