@@ -10,7 +10,7 @@ const Product = () => {
     const cartId = localStorage.getItem('cartId');
     if (!cartId) {
       axios
-        .post('http://127.0.0.1:8000/shop/carts/')
+        .post('https://shoplify-prod-231a968d6096.herokuapp.com/shop/carts/')
         .then((response) => {
           console.log('Cart created:', response.data);
           localStorage.setItem('cartId', response.data.id);
@@ -26,7 +26,7 @@ const Product = () => {
       quantity: 1,
     }
     console.log(item.id)
-    axios.post(`http://127.0.0.1:8000/shop/carts/${cartId}/items/`,cartItem)
+    axios.post(`https://shoplify-prod-231a968d6096.herokuapp.com/shop/carts/${cartId}/items/`,cartItem)
     .then((response) => {
     // Handle the response if needed
       console.log('Product added to cart:', response.data);
@@ -38,7 +38,7 @@ const Product = () => {
 
   };
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/shop/products/')
+    axios.get('https://shoplify-prod-231a968d6096.herokuapp.com/shop/products/')
       .then(res => {
         setItems(res.data.results)
     })

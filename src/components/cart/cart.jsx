@@ -7,7 +7,7 @@ const Cart = () => {
   const [items, setCartItems] = useState([]);
   const cartId = localStorage.getItem('cartId');
     useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/shop/carts/${cartId}/`)
+    axios.get(`https://shoplify-prod-231a968d6096.herokuapp.com/shop/carts/${cartId}/`)
       .then(res => {
         let cartItems=res.data.items
         if (cartItems.length == 0) {
