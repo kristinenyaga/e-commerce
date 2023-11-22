@@ -16,6 +16,7 @@ const Product = () => {
           console.log('Cart created:', response.data);
           localStorage.setItem('cartId', response.data.id);
           window.alert("Cart created successfully");
+          window.alert('Please,add another item to the cart this one is not added')
 
         })
         .catch((error) => {
