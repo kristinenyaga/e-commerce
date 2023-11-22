@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const Product = () => {
   const [productItems, setItems] = React.useState([]);
+  console.log(productItems)
 
   const addToCart = (item) => {
 
@@ -63,7 +64,16 @@ const Product = () => {
         {productItems.map((item, index) => (
           <div className="col" key={index}>
             <div className="card shadow-sm">
-              <img src={item.imageUrl} className="bd-placeholder-img card-img-top" width="100%" height="225" alt={item.name} />
+              {item.images.map((image) => (
+  <img
+    key={image.id} // Make sure to provide a unique key for each image
+    src={image.image}
+    className="bd-placeholder-img card-img-top"
+    width="100%"
+    height="225"
+    alt={item.title}
+  />
+))}
               <div className="card-body">
                 <p className="card-text fs-5 text-primary">{item.title}</p>
                 <p className="card-text">{item.description}</p>
