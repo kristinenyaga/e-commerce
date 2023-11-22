@@ -16,6 +16,7 @@ const Product = () => {
           console.log('Cart created:', response.data);
           localStorage.setItem('cartId', response.data.id);
           window.alert("Cart created successfully");
+
         })
         .catch((error) => {
           console.error('Error creating cart:', error);
@@ -67,7 +68,7 @@ const Product = () => {
               {item.images.map((image) => (
   <img
     key={image.id} // Make sure to provide a unique key for each image
-    src={image.image}
+    src={'https://shoplify-prod-231a968d6096.herokuapp.com'+image.image}
     className="bd-placeholder-img card-img-top"
     width="100%"
     height="225"
